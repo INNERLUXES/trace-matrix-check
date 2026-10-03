@@ -1,0 +1,50 @@
+{
+  "name": "trace-matrix-check",
+  "version": "1.0.0",
+  "description": "Check that every requirement of an application is traced to tests that ran and passed. Reads a requirements list (CSV or JSON), JUnit XML results (Surefire, pytest, Playwright, jest-junit) and a CSV export of test cases, finds the requirement IDs each test names in its name, class name, a property element or a column, and reports each requirement as covered-passing, covered-failing, covered-not-run or not covered, with the tests that name an ID the list does not hold, IDs on more than one row and requirements excluded by their status. Gates come from the configuration only; --explain shows which test linked each requirement, from which file and line. Never runs a test, no dependencies.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "bin": {
+    "trace-matrix-check": "bin/trace-matrix-check.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "docs",
+    "examples",
+    "research",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test \"test/*.test.js\"",
+    "test:coverage": "node --test --experimental-test-coverage \"test/*.test.js\"",
+    "check": "node tools/check.mjs",
+    "example": "node tools/example.mjs"
+  },
+  "keywords": [
+    "traceability",
+    "requirements-traceability",
+    "traceability-matrix",
+    "requirements-coverage",
+    "junit-xml",
+    "software-testing",
+    "test-management",
+    "qa",
+    "ci",
+    "cli"
+  ],
+  "author": "INNERLUXES <info@innerluxes.dev>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/INNERLUXES/trace-matrix-check.git"
+  },
+  "homepage": "https://innerluxes.dev/application/testing"
+}
