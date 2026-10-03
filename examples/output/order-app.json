@@ -1,0 +1,799 @@
+{
+  "tool": "trace-matrix-check",
+  "version": "1.0.0",
+  "config": {
+    "file": "examples/config.json",
+    "name": "Order management service, release 3.1",
+    "link": {
+      "prefixes": [
+        "ORD-"
+      ],
+      "idCharacters": "digits",
+      "ignoreCase": false,
+      "from": [
+        "name",
+        "classname",
+        "property"
+      ],
+      "propertyNames": [
+        "requirement",
+        "requirements"
+      ]
+    }
+  },
+  "inputs": {
+    "requirements": {
+      "file": "examples/order-app/requirements.csv",
+      "rows": 16
+    },
+    "junit": {
+      "paths": "examples/order-app/results/api, examples/order-app/results/ui",
+      "files": 4,
+      "testcases": 17
+    },
+    "testCases": {
+      "file": "examples/order-app/test-cases.csv",
+      "rows": 6
+    }
+  },
+  "summary": {
+    "requirements": 15,
+    "included": 13,
+    "excluded": 2,
+    "statuses": {
+      "covered-passing": 6,
+      "covered-failing": 3,
+      "covered-not-run": 2,
+      "not-covered": 2
+    },
+    "tests": 23,
+    "linkedTests": 21,
+    "unlinkedTests": 2,
+    "links": 21,
+    "orphanIds": 2,
+    "duplicateIds": 1,
+    "unlinkableIds": 0
+  },
+  "requirements": [
+    {
+      "id": "ORD-1",
+      "title": "Place an order from the cart",
+      "priority": "High",
+      "listStatus": "Approved",
+      "status": "covered-passing",
+      "at": "examples/order-app/requirements.csv:2",
+      "linkable": true,
+      "results": {
+        "passed": 2,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0,
+        "not-run": 0
+      },
+      "tests": [
+        {
+          "test": "shop.orders.OrderApiTest > ORD-1 places an order from the cart",
+          "kind": "junit",
+          "result": "passed",
+          "via": "name",
+          "at": "examples/order-app/results/api/TEST-shop.orders.OrderApiTest.xml:7"
+        },
+        {
+          "test": "checkout.spec.ts > checkout ORD-1 places an order as a guest",
+          "kind": "junit",
+          "result": "passed",
+          "via": "name",
+          "at": "examples/order-app/results/ui/playwright-results.xml:3"
+        }
+      ]
+    },
+    {
+      "id": "ORD-2",
+      "title": "Show the order total with tax",
+      "priority": "High",
+      "listStatus": "Approved",
+      "status": "covered-passing",
+      "at": "examples/order-app/requirements.csv:3",
+      "linkable": true,
+      "results": {
+        "passed": 2,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0,
+        "not-run": 0
+      },
+      "tests": [
+        {
+          "test": "order total ORD-2 shows the total with tax > order total ORD-2 shows the total with tax",
+          "kind": "junit",
+          "result": "passed",
+          "via": "name, classname",
+          "at": "examples/order-app/results/ui/jest-junit.xml:4"
+        },
+        {
+          "test": "order total ORD-2 rounds the tax of each line > order total ORD-2 rounds the tax of each line",
+          "kind": "junit",
+          "result": "passed",
+          "via": "name, classname",
+          "at": "examples/order-app/results/ui/jest-junit.xml:6"
+        }
+      ]
+    },
+    {
+      "id": "ORD-3",
+      "title": "Reserve stock for each order line",
+      "priority": "High",
+      "listStatus": "Approved",
+      "status": "covered-failing",
+      "at": "examples/order-app/requirements.csv:4",
+      "linkable": true,
+      "results": {
+        "passed": 0,
+        "failed": 1,
+        "error": 0,
+        "skipped": 0,
+        "not-run": 0
+      },
+      "tests": [
+        {
+          "test": "shop.orders.OrderApiTest > ORD-3 reserves stock for each order line",
+          "kind": "junit",
+          "result": "failed",
+          "message": "expected reserved quantity 2 but was 1",
+          "via": "name",
+          "at": "examples/order-app/results/api/TEST-shop.orders.OrderApiTest.xml:8"
+        }
+      ]
+    },
+    {
+      "id": "ORD-4",
+      "title": "Cancel an order before it ships",
+      "priority": "Medium",
+      "listStatus": "Approved",
+      "status": "covered-passing",
+      "at": "examples/order-app/requirements.csv:5",
+      "linkable": true,
+      "results": {
+        "passed": 2,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0,
+        "not-run": 0
+      },
+      "tests": [
+        {
+          "test": "shop.orders.OrderApiTest > ORD-4 cancels an order that has not shipped",
+          "kind": "junit",
+          "result": "passed",
+          "via": "name",
+          "at": "examples/order-app/results/api/TEST-shop.orders.OrderApiTest.xml:12"
+        },
+        {
+          "test": "tests.test_orders > test_cancel_after_shipping_is_refused",
+          "kind": "junit",
+          "result": "passed",
+          "via": "property requirements",
+          "at": "examples/order-app/results/api/pytest-refunds.xml:16"
+        }
+      ]
+    },
+    {
+      "id": "ORD-5",
+      "title": "Refund a cancelled order",
+      "priority": "High",
+      "listStatus": "Approved",
+      "status": "covered-passing",
+      "at": "examples/order-app/requirements.csv:6",
+      "linkable": true,
+      "results": {
+        "passed": 2,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0,
+        "not-run": 0
+      },
+      "tests": [
+        {
+          "test": "tests.test_refunds > test_refund_cancelled_order",
+          "kind": "junit",
+          "result": "passed",
+          "via": "property requirement",
+          "at": "examples/order-app/results/api/pytest-refunds.xml:6"
+        },
+        {
+          "test": "tests.test_refunds > test_refund_keeps_the_shipping_fee",
+          "kind": "junit",
+          "result": "passed",
+          "via": "property requirement",
+          "at": "examples/order-app/results/api/pytest-refunds.xml:11"
+        }
+      ]
+    },
+    {
+      "id": "ORD-6",
+      "title": "Send an order confirmation message",
+      "priority": "Medium",
+      "listStatus": "Approved",
+      "status": "covered-failing",
+      "at": "examples/order-app/requirements.csv:7",
+      "linkable": true,
+      "results": {
+        "passed": 0,
+        "failed": 1,
+        "error": 0,
+        "skipped": 0,
+        "not-run": 0
+      },
+      "tests": [
+        {
+          "test": "TC-103 Confirmation message holds the tracking link",
+          "kind": "test-case",
+          "result": "failed",
+          "via": "column Covers",
+          "at": "examples/order-app/test-cases.csv:4"
+        }
+      ]
+    },
+    {
+      "id": "ORD-7",
+      "title": "Track the delivery of an order",
+      "priority": "Medium",
+      "listStatus": "Approved",
+      "status": "covered-failing",
+      "at": "examples/order-app/requirements.csv:8",
+      "linkable": true,
+      "results": {
+        "passed": 2,
+        "failed": 1,
+        "error": 0,
+        "skipped": 0,
+        "not-run": 0
+      },
+      "tests": [
+        {
+          "test": "tests.test_orders > test_cancel_after_shipping_is_refused",
+          "kind": "junit",
+          "result": "passed",
+          "via": "property requirements",
+          "at": "examples/order-app/results/api/pytest-refunds.xml:16"
+        },
+        {
+          "test": "orders.spec.ts > orders ORD-7 shows the delivery status",
+          "kind": "junit",
+          "result": "passed",
+          "via": "name",
+          "at": "examples/order-app/results/ui/playwright-results.xml:11"
+        },
+        {
+          "test": "TC-103 Confirmation message holds the tracking link",
+          "kind": "test-case",
+          "result": "failed",
+          "via": "column Covers",
+          "at": "examples/order-app/test-cases.csv:4"
+        }
+      ]
+    },
+    {
+      "id": "ORD-8",
+      "title": "Split an order into several shipments",
+      "priority": "Low",
+      "listStatus": "Approved",
+      "status": "covered-not-run",
+      "at": "examples/order-app/requirements.csv:9",
+      "linkable": true,
+      "results": {
+        "passed": 0,
+        "failed": 0,
+        "error": 0,
+        "skipped": 1,
+        "not-run": 0
+      },
+      "tests": [
+        {
+          "test": "TC-104 Backordered line ships separately",
+          "kind": "test-case",
+          "result": "skipped",
+          "via": "column Covers",
+          "at": "examples/order-app/test-cases.csv:5"
+        }
+      ]
+    },
+    {
+      "id": "ORD-9",
+      "title": "Apply a discount code at checkout",
+      "priority": "Medium",
+      "listStatus": "Approved",
+      "status": "covered-passing",
+      "at": "examples/order-app/requirements.csv:10",
+      "linkable": true,
+      "results": {
+        "passed": 2,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0,
+        "not-run": 0
+      },
+      "tests": [
+        {
+          "test": "checkout.spec.ts > checkout ORD-9 applies a discount code",
+          "kind": "junit",
+          "result": "passed",
+          "via": "name",
+          "at": "examples/order-app/results/ui/playwright-results.xml:5"
+        },
+        {
+          "test": "TC-106 Expired discount code is refused",
+          "kind": "test-case",
+          "result": "passed",
+          "via": "column Covers",
+          "at": "examples/order-app/test-cases.csv:7"
+        }
+      ]
+    },
+    {
+      "id": "ORD-10",
+      "title": "Export the orders of a day as a spreadsheet",
+      "priority": "Low",
+      "listStatus": "Withdrawn",
+      "status": "excluded",
+      "at": "examples/order-app/requirements.csv:11",
+      "linkable": true,
+      "results": {
+        "passed": 1,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0,
+        "not-run": 0
+      },
+      "tests": [
+        {
+          "test": "checkout.spec.ts > checkout ORD-10 exports the orders of the day",
+          "kind": "junit",
+          "result": "passed",
+          "via": "name",
+          "at": "examples/order-app/results/ui/playwright-results.xml:7"
+        }
+      ]
+    },
+    {
+      "id": "ORD-11",
+      "title": "Reorder a past order in one step",
+      "priority": "Low",
+      "listStatus": "Approved",
+      "status": "covered-not-run",
+      "at": "examples/order-app/requirements.csv:12",
+      "linkable": true,
+      "results": {
+        "passed": 0,
+        "failed": 0,
+        "error": 0,
+        "skipped": 1,
+        "not-run": 1
+      },
+      "tests": [
+        {
+          "test": "orders.spec.ts > orders ORD-11 reorders a past order",
+          "kind": "junit",
+          "result": "skipped",
+          "via": "name",
+          "at": "examples/order-app/results/ui/playwright-results.xml:13"
+        },
+        {
+          "test": "TC-105 Reorder copies the delivery address",
+          "kind": "test-case",
+          "result": "not-run",
+          "via": "column Covers",
+          "at": "examples/order-app/test-cases.csv:6"
+        }
+      ]
+    },
+    {
+      "id": "ORD-12",
+      "title": "Reject an order over the credit limit",
+      "priority": "High",
+      "listStatus": "Approved",
+      "status": "not-covered",
+      "at": "examples/order-app/requirements.csv:13",
+      "linkable": true,
+      "results": {
+        "passed": 0,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0,
+        "not-run": 0
+      },
+      "tests": []
+    },
+    {
+      "id": "ORD-13",
+      "title": "Print a packing slip",
+      "priority": "Low",
+      "listStatus": "Draft",
+      "status": "covered-passing",
+      "at": "examples/order-app/requirements.csv:14",
+      "linkable": true,
+      "results": {
+        "passed": 1,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0,
+        "not-run": 0
+      },
+      "tests": [
+        {
+          "test": "TC-101 Packing slip lists every order line",
+          "kind": "test-case",
+          "result": "passed",
+          "via": "column Covers",
+          "at": "examples/order-app/test-cases.csv:2"
+        }
+      ]
+    },
+    {
+      "id": "ORD-14",
+      "title": "Mark an order as a gift",
+      "priority": "Low",
+      "listStatus": "Withdrawn",
+      "status": "excluded",
+      "at": "examples/order-app/requirements.csv:15",
+      "linkable": true,
+      "results": {
+        "passed": 1,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0,
+        "not-run": 0
+      },
+      "tests": [
+        {
+          "test": "TC-102 Gift message is printed on the packing slip",
+          "kind": "test-case",
+          "result": "passed",
+          "via": "column Covers",
+          "at": "examples/order-app/test-cases.csv:3"
+        }
+      ]
+    },
+    {
+      "id": "ORD-15",
+      "title": "Archive orders after the retention period",
+      "priority": "Medium",
+      "listStatus": "Approved",
+      "status": "not-covered",
+      "at": "examples/order-app/requirements.csv:17",
+      "linkable": true,
+      "results": {
+        "passed": 0,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0,
+        "not-run": 0
+      },
+      "tests": []
+    }
+  ],
+  "orphans": [
+    {
+      "id": "ORD-41",
+      "tests": [
+        {
+          "test": "shop.orders.OrderApiTest > ORD-41 holds an order for a fraud review",
+          "kind": "junit",
+          "result": "passed",
+          "via": "name",
+          "at": "examples/order-app/results/api/TEST-shop.orders.OrderApiTest.xml:13"
+        }
+      ]
+    },
+    {
+      "id": "ORD-16",
+      "tests": [
+        {
+          "test": "orders.spec.ts > orders ORD-16 shows the order timeline",
+          "kind": "junit",
+          "result": "passed",
+          "via": "name",
+          "at": "examples/order-app/results/ui/playwright-results.xml:17"
+        }
+      ]
+    }
+  ],
+  "duplicates": [
+    {
+      "id": "ORD-9",
+      "line": 16,
+      "first": 10
+    }
+  ],
+  "unlinkedTests": [
+    {
+      "test": "shop.orders.OrderApiTest > healthCheckReturnsOk",
+      "result": "passed",
+      "at": "examples/order-app/results/api/TEST-shop.orders.OrderApiTest.xml:14"
+    },
+    {
+      "test": "money formats an amount in the shop currency > money formats an amount in the shop currency",
+      "result": "passed",
+      "at": "examples/order-app/results/ui/jest-junit.xml:10"
+    }
+  ],
+  "gates": [
+    {
+      "id": "must-pass",
+      "title": "Requirements of the named priorities are covered-passing",
+      "status": "not-met",
+      "rule": "every requirement of priority High is covered-passing",
+      "actual": "3 of 5 requirements covered-passing",
+      "reason": "2 requirements of that priority are not covered-passing",
+      "details": [
+        "ORD-3 (High): covered-failing",
+        "ORD-12 (High): not covered"
+      ],
+      "facts": [
+        {
+          "text": "ORD-1 (High): covered-passing, 2 tests",
+          "at": "examples/order-app/requirements.csv:2"
+        },
+        {
+          "text": "ORD-2 (High): covered-passing, 2 tests",
+          "at": "examples/order-app/requirements.csv:3"
+        },
+        {
+          "text": "ORD-3 (High): covered-failing, 1 test",
+          "at": "examples/order-app/requirements.csv:4"
+        },
+        {
+          "text": "ORD-5 (High): covered-passing, 2 tests",
+          "at": "examples/order-app/requirements.csv:6"
+        },
+        {
+          "text": "ORD-12 (High): not covered, 0 tests",
+          "at": "examples/order-app/requirements.csv:13"
+        }
+      ],
+      "basis": [
+        {
+          "text": "A provision that contains criteria to be fulfilled.",
+          "section": "requirement",
+          "source": "https://glossary.istqb.org/en_US/term/requirement"
+        },
+        {
+          "text": "A black-box test technique in which test conditions are derived from atomic requirements.",
+          "section": "requirements-based testing",
+          "source": "https://glossary.istqb.org/en_US/term/requirements-based-testing"
+        }
+      ]
+    },
+    {
+      "id": "not-covered",
+      "title": "Most requirements that no test covers",
+      "status": "not-met",
+      "rule": "at most 0 requirements not covered",
+      "actual": "2 requirements of 13 not covered",
+      "reason": "2 is above 0",
+      "details": [
+        "ORD-12 (High) Reject an order over the credit limit",
+        "ORD-15 (Medium) Archive orders after the retention period"
+      ],
+      "facts": [
+        {
+          "text": "ORD-12 (High): not covered, 0 tests",
+          "at": "examples/order-app/requirements.csv:13"
+        },
+        {
+          "text": "ORD-15 (Medium): not covered, 0 tests",
+          "at": "examples/order-app/requirements.csv:17"
+        }
+      ],
+      "basis": [
+        {
+          "text": "The ability to establish explicit relationships between related work products or items within work products.",
+          "section": "traceability",
+          "source": "https://glossary.istqb.org/en_US/term/traceability"
+        },
+        {
+          "text": "The body of knowledge used as the basis for test analysis and test design.",
+          "section": "test basis",
+          "source": "https://glossary.istqb.org/en_US/term/test-basis"
+        }
+      ]
+    },
+    {
+      "id": "covered-failing",
+      "title": "Most requirements with a failing test",
+      "status": "not-met",
+      "rule": "at most 0 requirements covered-failing",
+      "actual": "3 requirements of 13 covered-failing",
+      "reason": "3 is above 0",
+      "details": [
+        "ORD-3 (High) Reserve stock for each order line",
+        "ORD-6 (Medium) Send an order confirmation message",
+        "ORD-7 (Medium) Track the delivery of an order"
+      ],
+      "facts": [
+        {
+          "text": "ORD-3 (High): covered-failing, 1 test",
+          "at": "examples/order-app/requirements.csv:4"
+        },
+        {
+          "text": "ORD-6 (Medium): covered-failing, 1 test",
+          "at": "examples/order-app/requirements.csv:7"
+        },
+        {
+          "text": "ORD-7 (Medium): covered-failing, 3 tests",
+          "at": "examples/order-app/requirements.csv:8"
+        }
+      ],
+      "basis": [
+        {
+          "text": "A provision that contains criteria to be fulfilled.",
+          "section": "requirement",
+          "source": "https://glossary.istqb.org/en_US/term/requirement"
+        },
+        {
+          "text": "A set of preconditions, inputs, actions (where applicable), expected results and postconditions, developed based on test conditions.",
+          "section": "test case",
+          "source": "https://glossary.istqb.org/en_US/term/test-case"
+        }
+      ]
+    },
+    {
+      "id": "covered-not-run",
+      "title": "Most requirements whose tests did not run",
+      "status": "met",
+      "rule": "at most 2 requirements covered-not-run",
+      "actual": "2 requirements of 13 covered-not-run",
+      "reason": "",
+      "details": [
+        "ORD-8 (Low) Split an order into several shipments",
+        "ORD-11 (Low) Reorder a past order in one step"
+      ],
+      "facts": [
+        {
+          "text": "ORD-8 (Low): covered-not-run, 1 test",
+          "at": "examples/order-app/requirements.csv:9"
+        },
+        {
+          "text": "ORD-11 (Low): covered-not-run, 2 tests",
+          "at": "examples/order-app/requirements.csv:12"
+        }
+      ],
+      "basis": [
+        {
+          "text": "A set of preconditions, inputs, actions (where applicable), expected results and postconditions, developed based on test conditions.",
+          "section": "test case",
+          "source": "https://glossary.istqb.org/en_US/term/test-case"
+        },
+        {
+          "text": "<xs:element name=\"skipped\" nillable=\"true\" minOccurs=\"0\" maxOccurs=\"1\">",
+          "section": "testcase",
+          "source": "https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd"
+        }
+      ]
+    },
+    {
+      "id": "passing-share",
+      "title": "Least share of requirements that are covered-passing",
+      "status": "met",
+      "rule": "at least 40% of the included requirements covered-passing",
+      "actual": "46.15% (6 of 13 requirements)",
+      "reason": "",
+      "details": [
+        "ORD-3 (High): covered-failing",
+        "ORD-6 (Medium): covered-failing",
+        "ORD-7 (Medium): covered-failing",
+        "ORD-8 (Low): covered-not-run",
+        "ORD-11 (Low): covered-not-run",
+        "ORD-12 (High): not covered",
+        "ORD-15 (Medium): not covered"
+      ],
+      "facts": [
+        {
+          "text": "ORD-3 (High): covered-failing, 1 test",
+          "at": "examples/order-app/requirements.csv:4"
+        },
+        {
+          "text": "ORD-6 (Medium): covered-failing, 1 test",
+          "at": "examples/order-app/requirements.csv:7"
+        },
+        {
+          "text": "ORD-7 (Medium): covered-failing, 3 tests",
+          "at": "examples/order-app/requirements.csv:8"
+        },
+        {
+          "text": "ORD-8 (Low): covered-not-run, 1 test",
+          "at": "examples/order-app/requirements.csv:9"
+        },
+        {
+          "text": "ORD-11 (Low): covered-not-run, 2 tests",
+          "at": "examples/order-app/requirements.csv:12"
+        },
+        {
+          "text": "ORD-12 (High): not covered, 0 tests",
+          "at": "examples/order-app/requirements.csv:13"
+        },
+        {
+          "text": "ORD-15 (Medium): not covered, 0 tests",
+          "at": "examples/order-app/requirements.csv:17"
+        }
+      ],
+      "basis": [
+        {
+          "text": "A black-box test technique in which test conditions are derived from atomic requirements.",
+          "section": "requirements-based testing",
+          "source": "https://glossary.istqb.org/en_US/term/requirements-based-testing"
+        }
+      ]
+    },
+    {
+      "id": "orphans",
+      "title": "Most IDs that tests name and the list does not hold",
+      "status": "not-met",
+      "rule": "at most 0 IDs that tests name and the requirements list does not hold",
+      "actual": "2 orphan IDs in 2 tests",
+      "reason": "2 is above 0: a test names a requirement the list does not hold (removed, renamed or mistyped)",
+      "details": [
+        "ORD-41: named by shop.orders.OrderApiTest > ORD-41 holds an order for a fraud review",
+        "ORD-16: named by orders.spec.ts > orders ORD-16 shows the order timeline"
+      ],
+      "facts": [
+        {
+          "text": "ORD-41: shop.orders.OrderApiTest > ORD-41 holds an order for a fraud review (name)",
+          "at": "examples/order-app/results/api/TEST-shop.orders.OrderApiTest.xml:13"
+        },
+        {
+          "text": "ORD-16: orders.spec.ts > orders ORD-16 shows the order timeline (name)",
+          "at": "examples/order-app/results/ui/playwright-results.xml:17"
+        }
+      ],
+      "basis": [
+        {
+          "text": "The ability to establish explicit relationships between related work products or items within work products.",
+          "section": "traceability",
+          "source": "https://glossary.istqb.org/en_US/term/traceability"
+        }
+      ]
+    },
+    {
+      "id": "duplicate-ids",
+      "title": "Most requirement IDs on more than one row",
+      "status": "not-met",
+      "rule": "at most 0 requirement IDs on more than one row",
+      "actual": "1 ID on more than one row",
+      "reason": "1 is above 0: the first row of each is used, and the others are not in the matrix",
+      "details": [
+        "ORD-9: lines 10, 16; line 10 is used"
+      ],
+      "facts": [
+        {
+          "text": "ORD-9 again, first on line 10",
+          "at": "examples/order-app/requirements.csv:16"
+        }
+      ],
+      "basis": [
+        {
+          "text": "The ability to establish explicit relationships between related work products or items within work products.",
+          "section": "traceability",
+          "source": "https://glossary.istqb.org/en_US/term/traceability"
+        },
+        {
+          "text": "A provision that contains criteria to be fulfilled.",
+          "section": "requirement",
+          "source": "https://glossary.istqb.org/en_US/term/requirement"
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "met": 2,
+    "notMet": 5
+  },
+  "verdict": {
+    "pass": false,
+    "text": "fail"
+  },
+  "notes": [
+    "examples/order-app/test-cases.csv: 1 test case has a result that testCases does not list ((empty): 1); it counts as not run",
+    "examples/order-app/requirements.csv: 1 requirement ID appears on more than one row; the first row of each is used"
+  ]
+}

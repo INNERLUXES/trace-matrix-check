@@ -1,0 +1,35 @@
+Source: https://github.com/jest-community/jest-junit
+
+jest-junit, README.md: three rows of the table of options, and the section Adding custom testcase properties (the value of the timestamp attribute in the example, a date, is shown as ...)
+
+| Environment Variable Name | Reporter Config Name| Description | Default | Possible Injection Values
+|---|---|---|---|---|
+| `JEST_JUNIT_SUITE_NAME` | `suiteNameTemplate` | Template string for `name` attribute of the `<testsuite>`. | `"{title}"` | `{title}`, `{filepath}`, `{filename}`, `{displayName}`
+| `JEST_JUNIT_CLASSNAME` | `classNameTemplate` | Template string for the `classname` attribute of `<testcase>`. | `"{classname} {title}"` | `{classname}`, `{title}`, `{suitename}`, `{filepath}`, `{filename}`, `{displayName}`
+| `JEST_JUNIT_TITLE` | `titleTemplate` | Template string for the `name` attribute of `<testcase>`. | `"{classname} {title}"` | `{classname}`, `{title}`, `{filepath}`, `{filename}`, `{displayName}`
+
+#### Adding custom testcase properties
+
+Create a file in your project root directory named junitTestCaseProperties.js:
+```js
+module.exports = (testResult) => {
+  return {
+    "dd_tags[test.invocations]": testResult.invocations,
+  };
+};
+```
+
+Will render
+```xml
+<testsuites name="jest tests">
+  <testsuite name="addition" tests="1" errors="0" failures="0" skipped="0" timestamp="..." time="0.161">
+    <testcase classname="addition positive numbers should add up" name="addition positive numbers should add up" time="0.004">
+      <properties>
+        <property name="dd_tags[test.invocations]" value="1" />
+      </properties>
+    </testcase>
+  </testsuite>
+</testsuites>
+```
+
+WARNING: Properties for testcases is not following standard JUnit XML schema.

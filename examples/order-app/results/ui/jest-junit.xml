@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="3" failures="0" errors="0" time="1.9">
+  <testsuite name="order total" errors="0" failures="0" skipped="0" time="0.4" tests="2">
+    <testcase classname="order total ORD-2 shows the total with tax" name="order total ORD-2 shows the total with tax" time="0.004">
+    </testcase>
+    <testcase classname="order total ORD-2 rounds the tax of each line" name="order total ORD-2 rounds the tax of each line" time="0.003">
+    </testcase>
+  </testsuite>
+  <testsuite name="money" errors="0" failures="0" skipped="0" time="0.2" tests="1">
+    <testcase classname="money formats an amount in the shop currency" name="money formats an amount in the shop currency" time="0.002">
+    </testcase>
+  </testsuite>
+</testsuites>

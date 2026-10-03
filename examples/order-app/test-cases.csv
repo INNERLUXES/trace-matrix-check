@@ -1,0 +1,7 @@
+Key,Summary,Covers,Last Result
+TC-101,Packing slip lists every order line,ORD-13,Passed
+TC-102,Gift message is printed on the packing slip,ORD-14,Passed
+TC-103,Confirmation message holds the tracking link,"ORD-6, ORD-7",Failed
+TC-104,Backordered line ships separately,ORD-8,Blocked
+TC-105,Reorder copies the delivery address,ORD-11,
+TC-106,Expired discount code is refused,ORD-9,Passed

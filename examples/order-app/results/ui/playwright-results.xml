@@ -1,0 +1,20 @@
+<testsuites id="" name="" tests="6" failures="0" skipped="1" errors="0" time="12.3">
+<testsuite name="checkout.spec.ts" hostname="chromium" tests="3" failures="0" skipped="0" time="5.1" errors="0">
+<testcase name="checkout ORD-1 places an order as a guest" classname="checkout.spec.ts" time="2.1">
+</testcase>
+<testcase name="checkout ORD-9 applies a discount code" classname="checkout.spec.ts" time="1.6">
+</testcase>
+<testcase name="checkout ORD-10 exports the orders of the day" classname="checkout.spec.ts" time="1.4">
+</testcase>
+</testsuite>
+<testsuite name="orders.spec.ts" hostname="chromium" tests="3" failures="0" skipped="1" time="7.2" errors="0">
+<testcase name="orders ORD-7 shows the delivery status" classname="orders.spec.ts" time="2.8">
+</testcase>
+<testcase name="orders ORD-11 reorders a past order" classname="orders.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="orders ORD-16 shows the order timeline" classname="orders.spec.ts" time="4.4">
+</testcase>
+</testsuite>
+</testsuites>

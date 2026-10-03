@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="shop.orders.OrderApiTest" time="1.204" tests="5" errors="0" skipped="0" failures="1">
+  <properties>
+    <property name="java.version" value="21.0.4"/>
+    <property name="surefire.test.class.path" value="target/test-classes:target/classes"/>
+  </properties>
+  <testcase name="ORD-1 places an order from the cart" classname="shop.orders.OrderApiTest" time="0.212"/>
+  <testcase name="ORD-3 reserves stock for each order line" classname="shop.orders.OrderApiTest" time="0.188">
+    <failure message="expected reserved quantity 2 but was 1" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected reserved quantity 2 but was 1
+	at shop.orders.OrderApiTest.reservesStock(OrderApiTest.java:58)]]></failure>
+  </testcase>
+  <testcase name="ORD-4 cancels an order that has not shipped" classname="shop.orders.OrderApiTest" time="0.143"/>
+  <testcase name="ORD-41 holds an order for a fraud review" classname="shop.orders.OrderApiTest" time="0.097"/>
+  <testcase name="healthCheckReturnsOk" classname="shop.orders.OrderApiTest" time="0.012"/>
+</testsuite>

@@ -1,0 +1,17 @@
+ID,Title,Priority,Status
+ORD-1,Place an order from the cart,High,Approved
+ORD-2,Show the order total with tax,High,Approved
+ORD-3,Reserve stock for each order line,High,Approved
+ORD-4,Cancel an order before it ships,Medium,Approved
+ORD-5,Refund a cancelled order,High,Approved
+ORD-6,Send an order confirmation message,Medium,Approved
+ORD-7,Track the delivery of an order,Medium,Approved
+ORD-8,Split an order into several shipments,Low,Approved
+ORD-9,Apply a discount code at checkout,Medium,Approved
+ORD-10,Export the orders of a day as a spreadsheet,Low,Withdrawn
+ORD-11,Reorder a past order in one step,Low,Approved
+ORD-12,Reject an order over the credit limit,High,Approved
+ORD-13,Print a packing slip,Low,Draft
+ORD-14,Mark an order as a gift,Low,Withdrawn
+ORD-9,Apply two discount codes to one order,Medium,Approved
+ORD-15,Archive orders after the retention period,Medium,Approved

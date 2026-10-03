@@ -1,0 +1,28 @@
+{
+  "name": "Order management service, release 3.1",
+  "requirements": {
+    "columns": { "id": "ID", "title": "Title", "priority": "Priority", "status": "Status" },
+    "excludeStatuses": ["Withdrawn"]
+  },
+  "link": {
+    "prefixes": ["ORD-"],
+    "idCharacters": "digits",
+    "from": ["name", "classname", "property"],
+    "propertyNames": ["requirement", "requirements"]
+  },
+  "testCases": {
+    "columns": { "id": "Key", "title": "Summary", "requirements": "Covers", "result": "Last Result" },
+    "passed": ["Passed"],
+    "failed": ["Failed"],
+    "skipped": ["Blocked", "Skipped"]
+  },
+  "gates": {
+    "mustPass": { "priorities": ["High"] },
+    "maxNotCovered": 0,
+    "maxFailing": 0,
+    "maxNotRun": 2,
+    "minPassingShare": 40,
+    "maxOrphans": 0,
+    "maxDuplicateIds": 0
+  }
+}

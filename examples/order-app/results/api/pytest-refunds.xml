@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites name="pytest tests">
+  <testsuite name="pytest" errors="0" failures="0" skipped="0" tests="3" time="0.512" hostname="ci-runner">
+    <testcase classname="tests.test_refunds" name="test_refund_cancelled_order" file="tests/test_refunds.py" line="14" time="0.101">
+      <properties>
+        <property name="requirement" value="ORD-5" />
+      </properties>
+    </testcase>
+    <testcase classname="tests.test_refunds" name="test_refund_keeps_the_shipping_fee" file="tests/test_refunds.py" line="31" time="0.094">
+      <properties>
+        <property name="requirement" value="ORD-5" />
+      </properties>
+    </testcase>
+    <testcase classname="tests.test_orders" name="test_cancel_after_shipping_is_refused" file="tests/test_orders.py" line="52" time="0.120">
+      <properties>
+        <property name="requirements" value="ORD-4, ORD-7" />
+      </properties>
+    </testcase>
+  </testsuite>
+</testsuites>

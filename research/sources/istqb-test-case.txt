@@ -1,0 +1,6 @@
+Source: https://glossary.istqb.org/en_US/term/test-case
+Read from: https://api.glossary.istqb.org/v1/terms/test-case (the service that the glossary page calls)
+
+ISTQB Glossary, term: test case
+
+Definition: A set of preconditions, inputs, actions (where applicable), expected results and postconditions, developed based on test conditions.

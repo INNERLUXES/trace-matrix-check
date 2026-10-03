@@ -1,0 +1,27 @@
+Source: https://docs.pytest.org/en/stable/how-to/output.html#record-property
+
+pytest documentation, Managing pytest's output, section record_property (one sentence, and the example with custom markers, use a word the repository checks do not allow; they are left out and marked [...])
+
+record_property
+
+If you want to log additional information for a test, you can use the
+record_property fixture:
+
+def test_function(record_property):
+    record_property("example_key", 1)
+    assert True
+
+[...]
+
+<testcase classname="test_function" file="test_function.py" line="0" name="test_function" time="0.0009">
+  <properties>
+    <property name="example_key" value="1" />
+  </properties>
+</testcase>
+
+[...]
+
+Warning
+
+Please note that using this feature will break schema verifications for the latest JUnitXML schema.
+This might be a problem when used with some CI servers.

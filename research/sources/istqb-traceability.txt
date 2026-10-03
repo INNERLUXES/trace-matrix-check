@@ -1,0 +1,6 @@
+Source: https://glossary.istqb.org/en_US/term/traceability
+Read from: https://api.glossary.istqb.org/v1/terms/traceability (the service that the glossary page calls)
+
+ISTQB Glossary, term: traceability
+
+Definition: The ability to establish explicit relationships between related work products or items within work products.

@@ -1,0 +1,6 @@
+Source: https://glossary.istqb.org/en_US/term/requirements-based-testing
+Read from: https://api.glossary.istqb.org/v1/terms/requirements-based-testing (the service that the glossary page calls)
+
+ISTQB Glossary, term: requirements-based testing
+
+Definition: A black-box test technique in which test conditions are derived from atomic requirements.

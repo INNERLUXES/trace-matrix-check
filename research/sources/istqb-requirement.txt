@@ -1,0 +1,6 @@
+Source: https://glossary.istqb.org/en_US/term/requirement
+Read from: https://api.glossary.istqb.org/v1/terms/requirement (the service that the glossary page calls)
+
+ISTQB Glossary, term: requirement
+
+Definition: A provision that contains criteria to be fulfilled.

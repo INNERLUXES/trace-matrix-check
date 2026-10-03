@@ -1,0 +1,6 @@
+Source: https://glossary.istqb.org/en_US/term/test-basis
+Read from: https://api.glossary.istqb.org/v1/terms/test-basis (the service that the glossary page calls)
+
+ISTQB Glossary, term: test basis
+
+Definition: The body of knowledge used as the basis for test analysis and test design.
