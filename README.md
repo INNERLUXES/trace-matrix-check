@@ -17,8 +17,8 @@ npm test
 ```
 
 ```
-tests 215
-pass 212
+tests 218
+pass 215
 fail 0
 skipped 3
 ```
